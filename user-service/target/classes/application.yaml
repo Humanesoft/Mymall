@@ -1,0 +1,26 @@
+server:
+  port: 8084
+spring:
+  application:
+    name: user-service
+  profiles:
+    active: local
+db:
+  database: hm-user
+hm:
+  swagger:
+    title: 商城用户接口
+    package: com.hmall.user.controller
+  jwt:
+    location: classpath:hmall.jks
+    alias: hmall
+    password: hmall123
+    tokenTTL: 30m
+  auth:
+    excludePaths:
+      - /search/**
+      - /users/login
+      - /items/**
+      - /hi
+      -
+# keytool -genkeypair -alias hmall -keyalg RSA -keypass hmall123 -keystore hmall.jks -storepass hmall123
